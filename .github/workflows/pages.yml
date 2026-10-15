@@ -24,30 +24,10 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Ensure Pages is enabled
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -uo pipefail
-          REPO="${{ github.repository }}"
-          echo "=== current pages site ==="
-          gh api "repos/${REPO}/pages" || true
-          echo "=== create workflow pages site ==="
-          gh api --method POST "repos/${REPO}/pages" -f build_type=workflow || true
-          echo "=== update pages site ==="
-          gh api --method PUT "repos/${REPO}/pages" -f build_type=workflow || true
-          echo "=== request public visibility ==="
-          gh api --method PUT "repos/${REPO}/pages" -F public=true || true
-          echo "=== pages site now ==="
-          gh api "repos/${REPO}/pages" || true
-
       - name: Stage site
         run: |
           mkdir -p _site
           cp index.html _site/index.html
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
