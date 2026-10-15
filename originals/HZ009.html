@@ -1,0 +1,127 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>市场多一点，还是计划多一点——关于供给侧改革的一点想法</title>
+<style>
+:root {
+  --bg: #faf8f5;
+  --ink: #1a1a1a;
+  --muted: #666;
+  --line: #e5e0d8;
+  --accent: #8b3a1a;
+  --link: #0b5fff;
+  --quote-bg: #f3efe8;
+  --max: 40rem;
+  --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: var(--ink); background: var(--bg);
+  font-family: var(--font); line-height: 1.85;
+}
+a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: currentColor; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.1rem 4rem; }
+header.site {
+  border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1.75rem;
+}
+header.site .brand { font-family: var(--sans); font-size: .85rem; color: var(--muted); letter-spacing: .04em; }
+header.site h1 { font-size: 1.55rem; margin: .4rem 0 .3rem; line-height: 1.35; font-weight: 700; }
+header.site .sub { color: var(--muted); font-size: .95rem; margin: 0; }
+nav.top {
+  display: flex; flex-wrap: wrap; gap: .6rem 1rem;
+  font-family: var(--sans); font-size: .88rem; margin: 1rem 0 0;
+}
+nav.top a { color: var(--accent); }
+.cta {
+  display: block; margin: 1.25rem 0 1.75rem; padding: 1rem 1.15rem;
+  background: #fff; border: 2px solid var(--accent); border-radius: 10px;
+  font-family: var(--sans); text-align: center;
+}
+.cta a { color: var(--accent); font-weight: 700; font-size: 1.05rem; border: none; }
+.cta .hint { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; font-weight: 400; }
+.cover { text-align: center; padding: 2.5rem 0 1rem; }
+.book-title { font-size: 2.6rem; letter-spacing: .3em; margin: 0; }
+.book-sub { font-size: 1.2rem; margin: .4rem 0 1.2rem; }
+.book-tag { color: var(--muted); }
+.book-authors { margin: 1.5rem 0 .2rem; font-family: var(--sans); }
+.book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; }
+hr { border: none; border-top: 1px solid var(--line); margin: 1.5rem 0; }
+h2 { font-size: 1.25rem; margin: 2rem 0 .8rem; line-height: 1.4; }
+h3 { font-size: 1.08rem; margin: 1.5rem 0 .6rem; }
+p { margin: 0 0 1rem; }
+strong { font-weight: 700; }
+ul, ol { padding-left: 1.3rem; margin: 0 0 1rem; }
+li { margin: .35rem 0; }
+blockquote {
+  margin: 1rem 0 1.25rem; padding: .75rem 1rem;
+  background: var(--quote-bg); border-left: 3px solid var(--accent);
+  color: #222;
+}
+blockquote p { margin: 0 0 .5rem; }
+blockquote p:last-child { margin: 0; }
+.note {
+  font-family: var(--sans); font-size: .82rem; color: var(--muted);
+  border-top: 1px solid var(--line); margin-top: 2rem; padding-top: .8rem;
+}
+.toc { list-style: none; padding: 0; margin: 0; font-family: var(--sans); }
+.toc li { margin: 0; border-bottom: 1px solid var(--line); }
+.toc a {
+  display: flex; gap: .75rem; padding: .7rem 0; color: var(--ink); border: none;
+}
+.toc a:hover { color: var(--accent); }
+.toc .n { color: var(--muted); min-width: 1.6rem; font-variant-numeric: tabular-nums; }
+.toc .sec {
+  margin: 1.4rem 0 .5rem; font-size: .8rem; color: var(--muted);
+  letter-spacing: .08em; text-transform: uppercase; border: none; padding: 0;
+}
+.nav-bottom {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: .9rem;
+}
+.nav-bottom a { color: var(--accent); }
+.nav-bottom .disabled { color: #bbb; }
+.tag {
+  display: inline-block; font-family: var(--sans); font-size: .72rem;
+  padding: .1rem .4rem; border-radius: 4px; background: #efe8df; color: #5a4030;
+  margin-left: .25rem; vertical-align: middle;
+}
+.vault-link {
+  display: block; margin: .35rem 0 1rem;
+  font-family: var(--sans); font-size: .82rem; color: var(--accent);
+}
+.yw-box {
+  margin: 1.5rem 0; padding: 1rem; background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; font-family: var(--sans); font-size: .9rem;
+}
+.yw-box a { margin-right: .8rem; }
+footer {
+  margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: .78rem; color: var(--muted);
+}
+.preface h1 { display: none; }
+article.ch h1 { font-size: 1.45rem; line-height: 1.35; margin: 0 0 1.2rem; }
+.yuanwen-body { white-space: pre-wrap; font-size: .95rem; line-height: 1.9; }
+.vault-list { font-family: var(--sans); }
+.vault-list li { margin: .6rem 0; }
+@media (max-width: 520px) {
+  html { font-size: 17px; }
+  .wrap { padding: 1.1rem .9rem 3rem; }
+}
+</style></head><body><div class="wrap"><h1>市场多一点，还是计划多一点——关于供给侧改革的一点想法</h1><p class="note">本人作品 · HZ009 · 2017-09-22 19:31 UTC+8（公众号导出时间戳） · <a href="https://www.lijiaocn.com/wechat/categories/ColinHuangZheng.html">来源</a></p><div class="yuanwen-body">发布日期：2017-09-22 11:31:42 +0000
+前些天一位朋友和我聊起服装生产的历史，他说现在的大规模的批量服装生产是一战的功劳，因为战争引发了快速大规模生产衣服的需求，才有了今天的尺码标准。现在流行的时尚的Burberry的风衣，当时也是为了军队生产的。整个历史我没考证过，Burberry风衣的广告我倒是见过，确实讲了一段感人的战争故事。初听我朋友的这个讲法，有点惊讶，也有点怀疑，但也确实激活了过去一年来我对供给侧改革的思考。
+供给和需求是一体的两面，互为促进，有点蛋生鸡、鸡生蛋的味道，好像说不清谁先于谁。但要变革总得从一头抓起，我朋友讲的这个故事似乎映和我隐约而又强烈的感觉。
+         要根本上变革供给侧，得先变革需求侧，需求侧是拉动供给侧变革的牛鼻子。
+         
+第一类供给侧的变革是满足了一直存在却未被完全满足的需求。比方说人想飞，终于有一天有了飞机满足了飞的需求，也满足了人快速越洋出行的需求。这一大类涵盖了大多数供给侧的升级，满足了人更快、更多、更好、更美的诉求。当一种贪婪被满足，另一个贪婪又会出现。当然这个贪婪大多数时候被称为追求。
+第二类供给侧的变革源发于新的应用场景的出现。比方说出现了世界大战。在这个新的突发的应用场景下，衣服以及很多其他生活用品被成批量、大规模、标准化的需要，推动了供给侧生产组织、管理和交付流通上极大的变革。
+第三种供给侧的变革源发于前端需求集聚性的变化，或者说是信息收集成本大幅变化引起的。比方说智能手机出现以后收集路线、位置以及打车需求的归集成本大幅降低，使得人坐车出行可以用Uber这样的共享方式来满足。
+应该还有一些情形引起供给侧的变革我没想到，但不论是哪种供给侧的变革总应该有其对应的需求。人的大的需求场景更迭是不多的（引起第二类变革的类似战争这样的新场景）。人的现有需求的升级（更多、更快、更好之类的）是挺多的，但是不是所有的这些更快、更多都是值得去追求，去鼓励呢？这是一个值得我们反思的问题，在不在这里展开。而第三类变革，通过信息的归集，全链路打通来实现现有需求的更优质，更高效的满足则是大有可为，大部分情况下也是值得鼓励的。第三类变革延伸一点去想是挺有意思的，存在着大量的 可能性拿时间和空间的的统一来换取整体效率更高，成本更低。抽象来讲，存在一个通过推动需求流通侧更多地采用计划，以此来推动供给侧打破滞后的大规模计划生产实现中小规模批量“定制生产”的半市场经济的可能，即：
+用需求流通侧的半“计划经济”来推动实现供给侧的半“市场经济”。
+我们原有的线上电子商务解决了把义乌小商品市场搬到网上的问题，这把流通侧的信息高度透明化了，加速了各类商贩之间的市场竞争，但是对传统制造业的工厂改变不多，工厂要生产多少还是要一些计划的，主体的工厂主要还是依赖于线下商超的批量订单，按着几个月甚至半年一年的周期在排计划。线上的商贩竞争越激烈，越市场化，和线下生产的计划的脱节和对比也越厉害。国际需求的批量外贸订单的计划和线上零散售卖的订单之间的脱节也越厉害。在这种情况下，主体的工厂主要还是依赖于沃尔玛、家乐福。线上纯流通侧的极度市场化也不改变生产侧计划的滞后性和高度计划性。那存不存在一种模式能改变生产侧的滞后性和高度的刚性计划性呢？我认为我们还是得从需求侧的变革做文章。
+假设我们能让前端消费者多一点耐心及和其他人协调的愿望，放弃一部分所见即所得、现在马上要的冲动，那么我们就有机会利用人和人推荐、人和人之间关系、兴趣的相似点，做人以群分的归并，把每个人个性化的需求归集成有一定时间富裕度的计划性需求。这种需求的归集程度也许没有像沃尔玛这种半年期的批量订单那么大，但也是够让工厂一条产线经济地运转。这样我们就有机会把一个大的沃尔玛订单拆成50个小的批量订单，后端的生产也就可以摆脱对沃尔玛的依赖，改变原有授权产商全量计划生产的模式，进而由几十家有生产能力的厂商来市场竞争，这个按各种不同需求归集的50个批量订单。
+如果能够这样做，那么流通侧线上高度市场化和生产侧刚性计划的矛盾也就能缓解。取而代之的是，更多计划性的需求和更多市场的供给侧相融合。前后端信息会更全面的打通，消除需求和生产的错配，更是帮助我们传统的生产摆脱对传统类沃尔玛商超的依赖，能在需求的差异化批量归集中找到自身的差异化，实现真正的供给侧变革。从刚性走向柔性，从同质走向有差异有特色，从滞后的计划走向与需求同步的半市场化。</div>
+<p class="note"><a href="index.html">← 返回全部原文目录</a> · <a href="../index.html">回读本首页</a></p>
+</div></body></html>

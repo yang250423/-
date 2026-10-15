@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
+<meta name="robots" content="index,follow"/>
+<title>黄峥（Colin Huang）研究笔记</title>
+<style>:root {
+  --bg: #f6f4ef;
+  --card: #fffdf8;
+  --ink: #1c1917;
+  --muted: #57534e;
+  --line: #e7e5e4;
+  --accent: #9a3412;
+  --accent2: #0f766e;
+  --fact: #166534;
+  --self: #1d4ed8;
+  --other: #a16207;
+  --unv: #b91c1c;
+  --radius: 14px;
+  --shadow: 0 10px 30px rgba(28,25,23,.06);
+  font-family: "Source Han Sans SC", "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; color: var(--ink); background:
+    radial-gradient(1200px 500px at 10% -10%, #ffedd5 0%, transparent 50%),
+    radial-gradient(900px 400px at 100% 0%, #ccfbf1 0%, transparent 45%),
+    var(--bg);
+  line-height: 1.65;
+}
+a { color: var(--accent2); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+a:hover { color: var(--accent); }
+.wrap { max-width: 920px; margin: 0 auto; padding: 24px 20px 80px; }
+header.hero {
+  background: var(--card); border: 1px solid var(--line); border-radius: calc(var(--radius) + 4px);
+  padding: 28px 28px 22px; box-shadow: var(--shadow); margin-bottom: 22px;
+}
+header.hero h1 { margin: 0 0 8px; font-size: 1.85rem; letter-spacing: .02em; }
+header.hero .sub { color: var(--muted); margin: 0 0 14px; }
+.badge {
+  display: inline-block; font-size: .75rem; padding: 3px 10px; border-radius: 999px;
+  background: #fff7ed; color: var(--accent); border: 1px solid #fed7aa; margin-right: 6px;
+}
+.nav {
+  display: flex; flex-wrap: wrap; gap: 8px; margin: 18px 0 8px; position: sticky; top: 0; z-index: 5;
+  background: rgba(246,244,239,.9); backdrop-filter: blur(8px); padding: 10px 0; border-bottom: 1px solid transparent;
+}
+.nav a {
+  background: var(--card); border: 1px solid var(--line); border-radius: 999px;
+  padding: 6px 12px; color: var(--ink); text-decoration: none; font-size: .9rem;
+}
+.nav a:hover { border-color: #fdba74; background: #fff7ed; }
+.notice {
+  background: #fffbeb; border: 1px solid #fde68a; color: #78350f;
+  border-radius: var(--radius); padding: 12px 14px; margin: 12px 0 20px; font-size: .92rem;
+}
+section.card {
+  background: var(--card); border: 1px solid var(--line); border-radius: var(--radius);
+  padding: 22px 24px; margin-bottom: 18px; box-shadow: var(--shadow);
+}
+section.card h2 { margin: 0 0 12px; font-size: 1.35rem; border-bottom: 2px solid #ffedd5; padding-bottom: 8px; }
+section.card h3 { margin: 18px 0 8px; font-size: 1.05rem; color: var(--accent); }
+.muted { color: var(--muted); font-size: .92rem; }
+.tl { list-style: none; padding: 0; margin: 0; }
+.tl li {
+  display: grid; grid-template-columns: 110px 1fr; gap: 12px;
+  padding: 12px 0; border-bottom: 1px dashed var(--line);
+}
+.tl .y { font-weight: 700; color: var(--accent); }
+.tag {
+  display: inline-block; font-size: .72rem; font-weight: 700; padding: 1px 7px;
+  border-radius: 6px; margin-right: 6px; vertical-align: 1px;
+}
+.tag.fact { background: #dcfce7; color: var(--fact); }
+.tag.self { background: #dbeafe; color: var(--self); }
+.tag.other { background: #fef3c7; color: var(--other); }
+.tag.unverified { background: #fee2e2; color: var(--unv); }
+.cite { display: block; color: var(--muted); font-size: .85rem; margin-top: 4px; }
+.facts .block { border-left: 3px solid #fdba74; padding-left: 12px; margin: 14px 0; }
+.facts ul, .analysis ul, .gaps ul { padding-left: 1.2em; }
+.facts li, .analysis li { margin: 4px 0; }
+.links { margin-top: 6px; }
+.links a { margin-right: 10px; font-size: .88rem; }
+.src-table { width: 100%; border-collapse: collapse; font-size: .9rem; }
+.src-table th, .src-table td { text-align: left; padding: 8px 6px; border-bottom: 1px solid var(--line); vertical-align: top; }
+.src-table th { color: var(--muted); font-weight: 600; }
+.gap-item { padding: 10px 0; border-bottom: 1px dashed var(--line); }
+.gap-item .st {
+  font-size: .75rem; font-weight: 700; padding: 2px 8px; border-radius: 999px;
+  background: #f5f5f4; margin-left: 8px;
+}
+.gap-item .st.open { background: #fee2e2; color: #991b1b; }
+.gap-item .st.partial { background: #ffedd5; color: #9a3412; }
+.gap-item .st.closed { background: #dcfce7; color: #166534; }
+.upd { border-left: 3px solid #5eead4; padding-left: 12px; margin: 14px 0; }
+footer {
+  margin-top: 28px; color: var(--muted); font-size: .85rem; text-align: center;
+}
+@media (max-width: 640px) {
+  .tl li { grid-template-columns: 1fr; gap: 4px; }
+  header.hero h1 { font-size: 1.45rem; }
+}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="hero">
+    <span class="badge">公开 · 摘要版</span>
+    <span class="badge">研究笔记（可更新）</span>
+    <h1 id="title"></h1>
+    <p class="sub" id="subtitle"></p>
+    <p class="muted" id="identity"></p>
+  </header>
+  <nav class="nav">
+    <a href="#intro">简介</a>
+    <a href="#timeline">时间线</a>
+    <a href="#analysis">分析</a>
+    <a href="#facts">已核实要点</a>
+    <a href="#sources">来源清单</a>
+    <a href="#gaps">缺口</a>
+    <a href="#updates">更新日志</a>
+  </nav>
+  <div class="notice" id="disclaimer"></div>
+  <section class="card" id="intro"><h2>简介</h2><div id="intro-body"></div></section>
+  <section class="card" id="timeline"><h2>时间线</h2><p class="muted" id="tl-legend"></p><ul class="tl" id="tl-list"></ul></section>
+  <section class="card analysis" id="analysis"><h2>分析笔记</h2><p class="muted" id="an-intro"></p><div id="an-body"></div></section>
+  <section class="card facts" id="facts"><h2>已核实要点</h2><p class="muted" id="fa-intro"></p><div id="fa-body"></div></section>
+  <section class="card" id="sources"><h2>来源清单（标题 + 链接）</h2><p class="muted" id="so-intro"></p><div id="so-body"></div><p class="muted" id="so-note"></p></section>
+  <section class="card gaps" id="gaps"><h2>缺口与下一步</h2><p class="muted" id="ga-intro"></p><div id="ga-body"></div><h3>近期已关闭</h3><ul id="ga-closed"></ul></section>
+  <section class="card" id="updates"><h2>更新日志</h2><div id="up-body"></div></section>
+  <footer>
+    <p>站点更新：<span id="site-updated"></span> · dossier 标注截止：<span id="dossier-cutoff"></span></p>
+    <p>媒体报道全文见 <a href="originals/">全部原文</a> · <a href="index.html">返回读本</a></p>
+  </footer>
+</div>
+<script>
+const DATA = {"meta": {"title": "黄峥（Colin Huang）研究笔记", "subtitle": "公开可分享的时间线、已核实要点与来源索引", "subject": {"zh": "黄峥", "en": ["Colin Huang", "Zheng Huang", "Huang Zheng", "Colin Zheng Huang"], "note": "常见误写「黄铮」。勿与南京林大/北科大同名学者、外交官黄峥混淆。"}, "born": "1980（杭州；具体日期未核实）", "dossier_cutoff": "2026-10-14", "site_updated": "2026-10-16", "disclaimer": "本站仅展示研究团队整理的时间线、短摘要、已核实要点与来源标题+链接。不含媒体全文、访谈全文或付费墙转载。完整原文与 PDF 仅存于私有资料库，不在此公开。", "copyright_rule": "Public site MUST NOT contain full-text media articles, interviews, or paywalled reprints."}, "timeline": {"legend": {"fact": "〔事〕已确认事实（官方文件或多个独立来源）", "self": "〔自〕本人自述", "other": "〔他〕他人说法", "unverified": "〔未〕未核实 / 冲突"}, "events": [{"year": "1980", "text": "生于杭州。", "tag": "other", "cite": "Business Insider；彭博"}, {"year": "约1992", "text": "12岁进入杭州外国语学校。", "tag": "self", "cite": "《我的中学和大学》"}, {"year": "1998", "text": "保送浙江大学计算机，就读竺可桢学院前身「混合班」。", "tag": "other", "cite": "浙大计算机学院等"}, {"year": "大一", "text": "入选 Melton Foundation 项目。", "tag": "other", "cite": "Business Insider；基金会原始名单未找到"}, {"year": "2001–2002", "text": "经 MSN 结识丁磊（多数二手报道写 2001，少数写 2002；无一手年份）。", "tag": "unverified", "cite": "杭州网/经观等 vs 澎湃"}, {"year": "2002", "text": "赴威斯康星大学麦迪逊分校读计算机硕士；本人称该年认识段永平。", "tag": "self", "cite": "《财经》2018 访谈；SEC 佐证学业"}, {"year": "2004", "text": "加入 Google（总部软件工程师/项目经理）。SIGMOD/ICDM 论文作者单位 UW-Madison，与招股书表述一致。", "tag": "fact", "cite": "SEC 424B4；ACM DL"}, {"year": "2006", "text": "回国参与组建谷歌中国（媒体说法）；随段永平参加巴菲特午餐（年份有 2006/2009 冲突）。", "tag": "other", "cite": "彭博/维基；浙大报道"}, {"year": "约2007", "text": "离开谷歌，创办欧酷网。", "tag": "other", "cite": "CKGSB；彭博；招股书确认创办欧酷"}, {"year": "2010", "text": "出售欧酷网；同年创办乐其。", "tag": "fact", "cite": "SEC 424B4（出售）；乐其〔他〕"}, {"year": "2011", "text": "招股书写创办 Xinyoudi Studio（网络游戏）。与常见「2013 寻梦游戏」说法并存：品牌/域名 vs 法人。", "tag": "fact", "cite": "SEC 424B4；FT 称无「新游地」法人"}, {"year": "2014-01-09", "text": "上海寻梦信息技术有限公司成立（工商；无「新游地」曾用名）。", "tag": "fact", "cite": "天眼查/爱企查；20-F"}, {"year": "2015-04", "text": "开曼控股 Walnut Street Group 设立；拼好货起家。", "tag": "fact", "cite": "SEC 424B4"}, {"year": "2015-09", "text": "拼多多上线（第三方说法，未用原始文件单独核实）。", "tag": "other", "cite": "第三方合集"}, {"year": "2016-02", "text": "开通个人公众号 ColinHuangZheng，发出系列思考文章（原号已不可公开访问）。", "tag": "self", "cite": "第三方导出 lijiaocn"}, {"year": "2016-09", "text": "拼好货与拼多多合并（媒体说法）。", "tag": "other", "cite": "合集/潜望"}, {"year": "2018-06", "text": "商家到上海总部维权；平台维持处罚。", "tag": "fact", "cite": "界面新闻；TechNode"}, {"year": "2018-07-26", "text": "纳斯达克上市，发行价 19 美元/ADS，募资约 16.3 亿美元。IPO 后持股约 46.8%，表决权约 89.8%。", "tag": "fact", "cite": "SEC 424B4；Reuters"}, {"year": "2018-08", "text": "上海市场监管部门就假货问题展开调查；首次财报会称对假货零容忍。", "tag": "fact", "cite": "财新；财报会转录"}, {"year": "2020-07-01", "text": "卸任 CEO（陈磊接任）；设立繁星公益基金（捐出约 2.37% 股份，公司口径）；划出股份给合伙人集体。", "tag": "fact", "cite": "全员信；央广网"}, {"year": "2020-12 / 2021-01", "text": "新疆多多买菜员工猝死、长沙再有员工身亡；长宁区劳动保障监察介入。公开渠道未见最终结论。", "tag": "fact", "cite": "财新；彭博；劳动报"}, {"year": "2020Q3 起", "text": "黄峥不再出席业绩电话会（至少至 2021Q1 已逐季核实）。", "tag": "fact", "cite": "Motley Fool 参会名单"}, {"year": "2021-03-17", "text": "辞任董事长；1:10 超级投票权失效；承诺锁股 3 年。同期繁星基金承诺向浙大捐赠 1 亿美元（3–5 年）。", "tag": "fact", "cite": "2021 致股东信；浙大/新华网"}, {"year": "2022-09", "text": "Temu 在波士顿成立并上线。", "tag": "fact", "cite": "SEC 20-F"}, {"year": "2023", "text": "公司更名为 PDD Holdings，主要办公地写为都柏林；公司否认「迁总部」。", "tag": "fact", "cite": "TechCrunch；PingWest"}, {"year": "2024-06", "text": "阿肯色州起诉 Temu（诉方主张）。", "tag": "fact", "cite": "Arkansas AG"}, {"year": "2024 / 2025", "text": "媒体报道身家一度居中国首富附近；胡润/新财富榜单有更新。", "tag": "other", "cite": "Fortune/Bloomberg；胡润；新财富"}, {"year": "2025-06 / 07", "text": "内布拉斯加州起诉 Temu；欧盟委员会初步认定 Temu 违反 DSA。", "tag": "fact", "cite": "Nebraska AG；European Commission"}, {"year": "2026-04-17", "text": "市场监管总局对上海寻梦信息技术有限公司罚没 15.22 亿元（「幽灵外卖」案）。黄峥已无管理职务。", "tag": "fact", "cite": "新浪等转载处罚决定"}, {"year": "截至 2026-03-18", "text": "关联实体持股 24.8%，仍为第一大股东；PDD Partnership 6.5%。", "tag": "fact", "cite": "SEC 20-F（2025 财年）"}]}, "facts": {"intro": "下列要点均在私有 dossier 中标注为已核实（SEC 原件、公司公告、工商公开页或多个独立来源）。未核实数字与传闻不列入本表。", "items": [{"id": "F01", "title": "身份与学业", "points": ["中文名黄峥；英文常用 Colin Huang / Zheng Huang。", "约 1980 年生于杭州；上市时招股书董事表年龄 38 岁，与此相符。具体生日（维基写 1 月 1 日）未核实。", "浙大计算机（混合班）；2002–2004 威斯康星大学麦迪逊分校计算机硕士。", "SIGMOD 2004、ICDM 2004 作者 Zheng Huang 单位为 UW-Madison，与招股书「data mining / SIGMOD」表述一致。"], "links": [{"label": "SEC 424B4（招股书）", "url": "https://investor.pddholdings.com/node/6391/html"}, {"label": "SIGMOD 2004 目录", "url": "http://sigmod.org/publications/discs/2005/out/a_zheng_huang.htm"}]}, {"id": "F02", "title": "职业路径（SEC / 工商可核部分）", "points": ["2004 加入 Google；招股书原文确认。", "创办欧酷网，2010 年出售（招股书确认出售年份；售价多为媒体说法）。", "2011：招股书写创办 Xinyoudi Studio。上海寻梦信息技术有限公司工商成立日为 2014-01-09，公开页无「新游地」曾用名；FT 称从未存在该名称公司、仅有域名。", "2015-04：Walnut Street Group Holding Limited 设立。", "2018-07-26：IPO，US$19.00/ADS；募资约 16.3 亿美元。"], "links": [{"label": "招股书", "url": "https://investor.pddholdings.com/node/6391/html"}, {"label": "天眼查·上海寻梦", "url": "https://www.tianyancha.com/company/1132511753"}]}, {"id": "F03", "title": "持股与治理", "points": ["IPO 前关联持股约 50.7%；IPO 后约 46.8%，表决权约 89.8%（424B4 主要股东表）。", "2020-07-01：卸任 CEO；全员信称划出约 7.74% 股份给合伙人集体，并设立繁星公益基金（约 2.37% / 113,548,920 股，公司口径）。", "2021-03-17：辞任董事长，超级投票权失效，锁股 3 年。", "2025 财年 20-F（截至 2026-03-18）：关联实体持股 24.8%；PDD Partnership 6.5%；黄峥为 Qubit GP Limited 唯一董事。", "至少自 2020Q3 至 2021Q1：未出席业绩电话会（Motley Fool 参会名单）。"], "links": [{"label": "2020 全员信 PDF", "url": "https://www.pinduoduo.com/home/static/pdf/letter-pinduoduo-staff-another-baby-step-pinduoduo.pdf"}, {"label": "2021 致股东信 PDF", "url": "https://www.pinduoduo.com/home/static/pdf/2021-letter-to-shareholders.pdf"}, {"label": "SEC 20-F（2025 财年）", "url": "https://www.sec.gov/Archives/edgar/data/1737806/000110465926050727/pdd-20251231x20f.htm"}]}, {"id": "F04", "title": "慈善（已核实承诺与已核实到账）", "points": ["2021-03：繁星公益基金与浙大教育基金会签约，设立「繁星科学基金」；公开承诺未来 3–5 年捐助 1 亿美元（新华网/澎湃等）。", "已核实到账（浙大教育基金会年报「大额捐赠」）：2024 年度，繁星公益基金现金 116,337,556.89 元人民币（本地已核对 PDF）。", "2023 年报索引曾出现 142,158,537.32 元一行，但完整 PDF 自本机不可达、未核验报告年度栏 → 不作为已核实事实展示（见缺口）。", "2021/2022 公开捐赠名单出现 STARRY NIGHT / 繁星，金额未在名单中披露。"], "links": [{"label": "新华网 2021-03-18", "url": "http://www.xinhuanet.com/tech/2021-03/18/c_1127227411.htm"}, {"label": "浙大教育基金会 2024 年报 PDF", "url": "http://www.zuef.zju.edu.cn/ueditor/php/upload/file/20250821/1755770944103367.pdf"}, {"label": "GlobeNewswire 捐赠新闻稿", "url": "https://www.globenewswire.com/news-release/2021/03/18/2195074/0/en/Pinduoduo-Founder-s-Starry-Night-Charitable-Fund-to-Donate-US-100-Million-to-Zhejiang-University.html"}]}, {"id": "F05", "title": "本人反复表述的理念（摘要，非全文）", "points": ["「本分」：不赚人便宜；出问题先求责于己（2018 致股东信）。", "反「帝国式」零和竞争；错位竞争（《财经》2018；2019 股东信）。", "Costco + Disneyland；分布式 AI（2018 股东信与财报会）。", "去个人化：公司「不应该有过多的个人色彩」（2020 全员信）。", "市值/变现是副产品；不把抬高 ARPU 当作 KPI（访谈与财报会）。", "2021 年后几乎不再公开发言；公开检索未见新的本人长文。"], "links": [{"label": "2018 致股东信", "url": "https://www.pinduoduo.com/home/static/pdf/2018-letter-to-shareholders.pdf"}, {"label": "2019 致股东信", "url": "https://www.pinduoduo.com/home/static/pdf/2019-letter-to-shareholders.pdf"}, {"label": "公众号导出索引（第三方）", "url": "https://www.lijiaocn.com/wechat/categories/ColinHuangZheng.html"}]}, {"id": "F06", "title": "Temu / 监管（事实层）", "points": ["Temu 于 2022-09 在 Boston 成立（20-F）。", "2024–2025：美国阿肯色、内布拉斯加州起诉（诉方主张；案件进展以法院文件为准）。", "2025-07-28：欧盟委员会初步认定 Temu 违反 DSA。", "2026-04-17：对上海寻梦罚没 15.22 亿元。处罚对象为公司主体；黄峥当时已无管理职务。"], "links": [{"label": "欧盟 DSA 新闻稿 PDF", "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_25_1913/IP_25_1913_EN.pdf"}, {"label": "阿肯色州总检察长新闻稿", "url": "https://arkansasag.gov/news-release/attorney-general-griffin-sues-chinese-e-commerce-company-temu-for-deceiving-arkansans-illegally-accessing-their-personal-information/"}, {"label": "处罚报道（转载）", "url": "https://finance.sina.com.cn/chanjing/wddc/2026-04-17/doc-inhuvere0950770.shtml"}]}]}, "gaps": {"intro": "公开站只列研究缺口与状态，便于协作更新。细节与私有存档路径不在此展开。", "open": [{"id": "G01", "title": "原公众号链接与账号 ID", "status": "开放", "note": "微信原文已删；仅有第三方导出 10 篇。计划篇目其余是否发表过，未找到。"}, {"id": "G02", "title": "繁星各年到账完整核验", "status": "部分", "note": "2024：116,337,556.89 元已核实。2023 索引行 142,158,537.32 元待完整 PDF 复核（浙大教育基金会站点自研究机不可达）。2021–2022 名单有名、金额未披露。不在此把未核验数字标为已核实。"}, {"id": "G03", "title": "2.37% / Starry Night 的 SEC 逐行转让表", "status": "部分", "note": "公司新闻稿与全员信有口径；单份 SEC 转让表未逐行核对完成。"}, {"id": "G04", "title": "争议最终结论", "status": "开放", "note": "2021 长宁劳动监察：仅有「已介入」，无公开结案。美州诉讼终局、欧委会 DSA 最终决定、2026 处罚复议等需跟进。"}, {"id": "G05", "title": "他人直接评价", "status": "开放", "note": "丁磊、孙彤宇、马化腾/刘炽平、王卫等对黄峥的公开原话仍未找到。"}, {"id": "G06", "title": "外媒付费墙全文", "status": "部分", "note": "部分已有合法转载/Wayback；FT 英文 UUID 已定位但仍有墙；WSJ 快照正文加密；Economist 快照仅导语。"}, {"id": "G07", "title": "疑似误传篇目", "status": "未核实", "note": "《买房、买股票…》《权力和逆反性》等标题可能为误传。"}, {"id": "G08", "title": "谷歌专利", "status": "关闭（无果）", "note": "公开检索无发明人署名为 Zheng/Colin Huang、受让人 Google 的专利。"}], "closed_recently": ["持股 50.7% / 24.8% 已在 SEC 原件核对", "学术同名 SIGMOD/ICDM 作者单位 UW-Madison 已确认", "2020Q3–2021Q1 未出席财报会已确认", "Xinyoudi「品牌/域名」vs 寻梦法人：基本厘清", "Bloomberg 2018-07-26 IPO 文 Wayback 全文已取得（私有存档）"]}, "updates": {"entries": [{"date": "2026-10-16", "round": "站点上线 / r16 同步", "items": ["建立公开静态站：简介、时间线、已核实要点、来源清单、缺口与更新日志。", "版权策略：公开页仅摘要+链接；全文/PDF 留在私有 /workspace/huangzheng/。", "繁星到账：仅展示已核实的 2024 年 116,337,556.89 元；2023 索引金额标为待核验缺口。", "记录：浙大教育基金会 2023 年报原站自研究机不可达（chrome-error / curl 超时），非付费墙。"]}, {"date": "2026-10-16", "round": "第16轮（dossier）", "items": ["推进繁星科学基金到账核对；2024 PDF 落盘。", "2021 劳动监察：公开渠道无最终结论。", "FT secretive internet king UUID 定位；全文仍墙。"]}, {"date": "2026-10-14", "round": "dossier 核心饱和标注", "items": ["股东信、公众号 10 篇、2016–2018 主要访谈已收录（不代表检索穷尽）。", "建立事实 / 自述 / 他述 / 推断四分法。"]}]}, "sources": {"intro": "仅列标题与原始/可读 URL，便于核对。不含正文。完整语料与 PDF 在私有资料库。条目 ID 与 dossier 主目录一致。", "categories": [{"name": "本人作品（股东信 / 公众号导出）", "items": [{"id": "HZ001–010", "title": "个人公众号 ColinHuangZheng 十篇（第三方导出）", "date": "2016-02–2017-09", "url": "https://www.lijiaocn.com/wechat/categories/ColinHuangZheng.html"}, {"id": "HZ011", "title": "2018年致股东信（招股书）", "date": "2018-06/07", "url": "https://www.pinduoduo.com/home/static/pdf/2018-letter-to-shareholders.pdf"}, {"id": "HZ012", "title": "2019年致股东信", "date": "2019-04-24", "url": "https://www.pinduoduo.com/home/static/pdf/2019-letter-to-shareholders.pdf"}, {"id": "HZ013", "title": "2020年致股东信《新生之时》", "date": "2020-04-20", "url": "https://www.pinduoduo.com/home/static/pdf/2020-letter-to-shareholders.pdf"}, {"id": "HZ014", "title": "致全员信：拼多多的一小步", "date": "2020-07-01", "url": "https://www.pinduoduo.com/home/static/pdf/letter-pinduoduo-staff-another-baby-step-pinduoduo.pdf"}, {"id": "HZ015", "title": "2021年致股东信（辞任董事长）", "date": "2021-03-17", "url": "https://www.pinduoduo.com/home/static/pdf/2021-letter-to-shareholders.pdf"}]}, {"name": "官方 / SEC / 监管", "items": [{"id": "HZ039", "title": "Pinduoduo F-1/424B4 招股书", "date": "2018-07-25", "url": "https://investor.pddholdings.com/node/6391/html"}, {"id": "HZ040", "title": "PDD Holdings 20-F（2023财年）", "date": "2024-04", "url": "https://www.sec.gov/Archives/edgar/data/1737806/000110465924051610/pdd-20231231x20f.htm"}, {"id": "HZ087", "title": "PDD 20-F（2025财年）主要股东表", "date": "2026-04-29", "url": "https://www.sec.gov/Archives/edgar/data/1737806/000110465926050727/pdd-20251231x20f.htm"}, {"id": "HZ043", "title": "浙大：繁星科学基金相关报道", "date": "2021-03-19", "url": "https://www.zju.edu.cn/2021/0319/c56945a2269529/pagem.htm"}, {"id": "HZ046", "title": "欧盟委员会：Temu 违反 DSA 初步认定", "date": "2025-07-28", "url": "https://ec.europa.eu/commission/presscorner/api/files/document/print/en/ip_25_1913/IP_25_1913_EN.pdf"}, {"id": "HZ047", "title": "阿肯色州总检察长诉 Temu", "date": "2024-06", "url": "https://arkansasag.gov/news-release/attorney-general-griffin-sues-chinese-e-commerce-company-temu-for-deceiving-arkansans-illegally-accessing-their-personal-information/"}, {"id": "HZ048", "title": "内布拉斯加州总检察长诉 Temu", "date": "2025-06-12", "url": "https://ago.nebraska.gov/attorney-general-hilgers-files-lawsuit-against-temu-siphoning-nebraskans-phone-data"}, {"id": "HZ045", "title": "市场监管总局处罚（转载）", "date": "2026-04-17", "url": "https://finance.sina.com.cn/chanjing/wddc/2026-04-17/doc-inhuvere0950770.shtml"}]}, {"name": "重要访谈与报道（标题+链接）", "items": [{"id": "HZ025", "title": "对话拼多多黄峥：他们建帝国、争地盘，我要错位竞争", "date": "2018-04-04", "url": "http://finance.sina.com.cn/chanjing/gsnews/2018-04-04/doc-ifyteqtq3840756.shtml"}, {"id": "HZ029", "title": "上市前采访：谈与微信以及淘宝的关系", "date": "2018-07-26", "url": "https://www.jiemian.com/article/2339319.html"}, {"id": "HZ030", "title": "财约你｜上市是战略选择 不关心公司市值", "date": "2018-07-26", "url": "https://m.cls.cn/detail/262055"}, {"id": "HZ089", "title": "黄峥的真实世界和理想世界（极客公园）", "date": "2019-01-18", "url": "https://www.geekpark.net/news/237639"}, {"id": "HZ050", "title": "Ex-Google Engineer Builds $1.5 Billion Startup…（Bloomberg；可读转载）", "date": "2017-04-27", "url": "https://guardian.ng/technology/ex-google-engineer-builds-1-5-billion-startup-in-21-months/"}, {"id": "HZ051", "title": "China's Pinduoduo prices U.S. IPO…（Reuters / Yahoo）", "date": "2018-07-25", "url": "https://finance.yahoo.com/news/pinduoduo-raises-1-6-billion-013421099.html"}, {"id": "HZ054", "title": "Meet Colin Huang（Business Insider）", "date": "2020-07", "url": "https://www.businessinsider.com/fabulous-life-colin-huang-pinduoduo-2020-7"}, {"id": "HZ068", "title": "段永平浙大见面会评价（澎湃）", "date": "2025-01-05", "url": "https://www.thepaper.cn/newsDetail_forward_29850741"}, {"id": "IR", "title": "PDD Investor Relations（财报与电话会入口）", "date": "持续", "url": "https://investor.pddholdings.com/"}]}, {"name": "财富榜与概况页（他述）", "items": [{"id": "HZ055", "title": "Bloomberg Billionaires：Zheng Huang", "date": "持续", "url": "https://www.bloomberg.com/billionaires/profiles/zheng-huang/"}, {"id": "HZ056", "title": "Forbes：Colin Huang", "date": "持续", "url": "https://www.forbes.com/profile/colin-huang/"}, {"id": "HZ067", "title": "Wikipedia: Colin Zheng Huang", "date": "持续", "url": "https://en.wikipedia.org/wiki/Colin_Zheng_Huang"}]}], "note": "dossier 主目录共 90+ 条；上表为公开站精选。需要完整目录请在私有仓库查看 01_主目录.md。"}, "analysis": {"intro": "以下为研究团队基于公开材料整理的分析笔记（非媒体全文转载）。引语尽量短摘并指向原始来源链接。", "sections": [{"id": "A1", "title": "核心观点（本人表述摘要）", "bullets": ["先选对方向再求做对：「要花大量时间去研究什么是正确的事，然后再去想如何把事做正确。」「活着是创业的第一要务。」（《如创业的投资和如投资的创业》，2016）", "本分：「不赚人便宜，即便我们能够」；「出现问题，首先求责于己。」（2018 致股东信）", "反帝国式竞争：「阿里京东滴滴美团，他们是帝国式竞争……我们这一代人的思路不该是这样。」（《财经》2018）；「摒弃零和竞争的帝国式思维」（2019 致股东信）", "Costco + Disneyland 与分布式 AI（2018 股东信；财报会补充）", "去个人化：「不是彰显个人能力的工具，也不应该有过多的个人色彩」（2020 全员信）", "长期主义：市值是副产品；monetization 非近端目标（访谈与 2018Q2 财报会）"]}, {"id": "A2", "title": "关键选择与行动", "bullets": ["出售欧酷、转向「拼」的模式：资料多来自他人说法。", "2018 不赴美敲钟：本人理由含中耳炎、希望消费者参与；虎嗅「财富暴增是负面」为作者转述，非本人文字。", "打假：「假一赔十」等为公司/本人财报会口径，独立核实不足。", "两步退出：2020 卸任 CEO，2021 卸任董事长并放弃超级投票权——官方文件可确认。", "慈善：2.37% 设繁星（公司口径）；向浙大承诺 1 亿美元；已核实到账见「已核实要点」。", "退出后自称转向食品与生命科学研究；具体产出未找到。"]}, {"id": "A3", "title": "公开表达随时间的变化", "bullets": ["2016–2017（公众号）：个人哲学——罗素、量子力学、「倒过来的资本主义」。", "2018（上市）：防守与解释——错位竞争、打假。", "2019–2020：宏观叙事——普惠、疫情、时间。", "2021 至今：几乎不再公开发言；未见新的本人长文。2026 年部分「对话」实为 2016 旧材料。"]}, {"id": "A4", "title": "张力与不确定性", "bullets": ["「本分」叙述与 2018 商家纠纷、2021 员工死亡、2026 监管处罚并存；其对后两起的个人回应未找到。2026 处罚时他已无管理职务，不宜简单归责个人。", "「拼多多战略仍体现其理念」多为他人分析，缺直接证据。", "持股：上市前约 50.7% → 截至 2026-03 约 24.8%；变化含捐赠与合伙人安排，细节部分未在 SEC 逐行核完。"]}, {"id": "A5", "title": "工商与 Xinyoudi（第12轮结论摘要）", "bullets": ["上海寻梦：2014-01-09 成立；公开页无「新游地」曾用名；SEC 互证 2014 年 1 月。", "「2012 更名为寻梦」与工商矛盾，判为不可信。", "Xinyoudi：SEC 自述品牌口径（2011）；FT 称无该名称法人、仅有域名。品牌/域名 vs 法人并列理解。"]}]}};
+const tagLabel = {fact:"〔事〕", self:"〔自〕", other:"〔他〕", unverified:"〔未〕"};
+const statusClass = s => {
+  if (!s) return "";
+  if (s.includes("开放") || s.includes("未核实")) return "open";
+  if (s.includes("部分")) return "partial";
+  if (s.includes("关闭") || s.includes("无果")) return "closed";
+  return "";
+};
+function el(id) { return document.getElementById(id); }
+function esc(s) {
+  return String(s ?? "").replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;","\"":"&quot;","'":"&#39;"}[c]));
+}
+(function render() {
+  const m = DATA.meta, t = DATA.timeline, a = DATA.analysis, f = DATA.facts, s = DATA.sources, g = DATA.gaps, u = DATA.updates;
+  el("title").textContent = m.title;
+  el("subtitle").textContent = m.subtitle;
+  el("identity").innerHTML = `<strong>${esc(m.subject.zh)}</strong> / ${m.subject.en.map(esc).join(" · ")}<br/>出生：${esc(m.born)}。${esc(m.subject.note)}`;
+  el("disclaimer").textContent = m.disclaimer;
+  el("site-updated").textContent = m.site_updated;
+  el("dossier-cutoff").textContent = m.dossier_cutoff;
+  el("intro-body").innerHTML = `
+    <p>本页是 Mark 黄峥（Colin Huang）传记研究的<strong>可更新 HTML 资料页</strong>：时间线、团队分析笔记、已核实要点、来源标题与原链、缺口与更新日志。</p>
+    <p>本页为公开资料库摘要。第三方媒体<strong>全文</strong>与 600+ 页合集 PDF 不在此整页嵌入；核查请点来源链接或使用团队私有存档。</p>
+    `;
+  el("tl-legend").textContent = Object.values(t.legend).join(" · ");
+  el("tl-list").innerHTML = t.events.map(e => `
+    <li><div class="y">${esc(e.year)}</div><div>
+      <span class="tag ${esc(e.tag)}">${tagLabel[e.tag] || e.tag}</span>${esc(e.text)}
+      <span class="cite">${esc(e.cite)}</span></div></li>`).join("");
+  el("an-intro").textContent = a.intro;
+  el("an-body").innerHTML = a.sections.map(sec => `
+    <h3>${esc(sec.title)}</h3><ul>${sec.bullets.map(b => `<li>${esc(b)}</li>`).join("")}</ul>`).join("");
+  el("fa-intro").textContent = f.intro;
+  el("fa-body").innerHTML = f.items.map(it => `
+    <div class="block"><h3>${esc(it.title)}</h3>
+      <ul>${it.points.map(p => `<li>${esc(p)}</li>`).join("")}</ul>
+      <div class="links">${(it.links||[]).map(l => `<a href="${esc(l.url)}" target="_blank" rel="noopener noreferrer">${esc(l.label)}</a>`).join("")}</div>
+    </div>`).join("");
+  el("so-intro").textContent = s.intro;
+  el("so-body").innerHTML = s.categories.map(cat => `
+    <h3>${esc(cat.name)}</h3>
+    <table class="src-table"><thead><tr><th>ID</th><th>标题</th><th>日期</th><th>链接</th></tr></thead>
+    <tbody>${cat.items.map(it => `<tr><td>${esc(it.id)}</td><td>${esc(it.title)}</td><td>${esc(it.date)}</td>
+      <td><a href="${esc(it.url)}" target="_blank" rel="noopener noreferrer">打开</a></td></tr>`).join("")}</tbody></table>`).join("");
+  el("so-note").textContent = s.note;
+  el("ga-intro").textContent = g.intro;
+  el("ga-body").innerHTML = g.open.map(it => `
+    <div class="gap-item"><strong>${esc(it.id)} · ${esc(it.title)}</strong>
+      <span class="st ${statusClass(it.status)}">${esc(it.status)}</span>
+      <p class="muted" style="margin:.35rem 0 0">${esc(it.note)}</p></div>`).join("");
+  el("ga-closed").innerHTML = (g.closed_recently||[]).map(x => `<li>${esc(x)}</li>`).join("");
+  el("up-body").innerHTML = u.entries.map(e => `
+    <div class="upd"><strong>${esc(e.date)}</strong> · ${esc(e.round)}
+      <ul>${e.items.map(i => `<li>${esc(i)}</li>`).join("")}</ul></div>`).join("");
+})();
+</script>
+</body>
+</html>

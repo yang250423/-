@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>劣币驱逐良币，电影院现象及其他</title>
+<style>
+:root {
+  --bg: #faf8f5;
+  --ink: #1a1a1a;
+  --muted: #666;
+  --line: #e5e0d8;
+  --accent: #8b3a1a;
+  --link: #0b5fff;
+  --quote-bg: #f3efe8;
+  --max: 40rem;
+  --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
+  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; }
+html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; color: var(--ink); background: var(--bg);
+  font-family: var(--font); line-height: 1.85;
+}
+a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
+a:hover { border-bottom-color: currentColor; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.1rem 4rem; }
+header.site {
+  border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1.75rem;
+}
+header.site .brand { font-family: var(--sans); font-size: .85rem; color: var(--muted); letter-spacing: .04em; }
+header.site h1 { font-size: 1.55rem; margin: .4rem 0 .3rem; line-height: 1.35; font-weight: 700; }
+header.site .sub { color: var(--muted); font-size: .95rem; margin: 0; }
+nav.top {
+  display: flex; flex-wrap: wrap; gap: .6rem 1rem;
+  font-family: var(--sans); font-size: .88rem; margin: 1rem 0 0;
+}
+nav.top a { color: var(--accent); }
+.cta {
+  display: block; margin: 1.25rem 0 1.75rem; padding: 1rem 1.15rem;
+  background: #fff; border: 2px solid var(--accent); border-radius: 10px;
+  font-family: var(--sans); text-align: center;
+}
+.cta a { color: var(--accent); font-weight: 700; font-size: 1.05rem; border: none; }
+.cta .hint { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; font-weight: 400; }
+.cover { text-align: center; padding: 2.5rem 0 1rem; }
+.book-title { font-size: 2.6rem; letter-spacing: .3em; margin: 0; }
+.book-sub { font-size: 1.2rem; margin: .4rem 0 1.2rem; }
+.book-tag { color: var(--muted); }
+.book-authors { margin: 1.5rem 0 .2rem; font-family: var(--sans); }
+.book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; }
+hr { border: none; border-top: 1px solid var(--line); margin: 1.5rem 0; }
+h2 { font-size: 1.25rem; margin: 2rem 0 .8rem; line-height: 1.4; }
+h3 { font-size: 1.08rem; margin: 1.5rem 0 .6rem; }
+p { margin: 0 0 1rem; }
+strong { font-weight: 700; }
+ul, ol { padding-left: 1.3rem; margin: 0 0 1rem; }
+li { margin: .35rem 0; }
+blockquote {
+  margin: 1rem 0 1.25rem; padding: .75rem 1rem;
+  background: var(--quote-bg); border-left: 3px solid var(--accent);
+  color: #222;
+}
+blockquote p { margin: 0 0 .5rem; }
+blockquote p:last-child { margin: 0; }
+.note {
+  font-family: var(--sans); font-size: .82rem; color: var(--muted);
+  border-top: 1px solid var(--line); margin-top: 2rem; padding-top: .8rem;
+}
+.toc { list-style: none; padding: 0; margin: 0; font-family: var(--sans); }
+.toc li { margin: 0; border-bottom: 1px solid var(--line); }
+.toc a {
+  display: flex; gap: .75rem; padding: .7rem 0; color: var(--ink); border: none;
+}
+.toc a:hover { color: var(--accent); }
+.toc .n { color: var(--muted); min-width: 1.6rem; font-variant-numeric: tabular-nums; }
+.toc .sec {
+  margin: 1.4rem 0 .5rem; font-size: .8rem; color: var(--muted);
+  letter-spacing: .08em; text-transform: uppercase; border: none; padding: 0;
+}
+.nav-bottom {
+  display: flex; justify-content: space-between; gap: 1rem;
+  margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: .9rem;
+}
+.nav-bottom a { color: var(--accent); }
+.nav-bottom .disabled { color: #bbb; }
+.tag {
+  display: inline-block; font-family: var(--sans); font-size: .72rem;
+  padding: .1rem .4rem; border-radius: 4px; background: #efe8df; color: #5a4030;
+  margin-left: .25rem; vertical-align: middle;
+}
+.vault-link {
+  display: block; margin: .35rem 0 1rem;
+  font-family: var(--sans); font-size: .82rem; color: var(--accent);
+}
+.yw-box {
+  margin: 1.5rem 0; padding: 1rem; background: #fff; border: 1px solid var(--line);
+  border-radius: 8px; font-family: var(--sans); font-size: .9rem;
+}
+.yw-box a { margin-right: .8rem; }
+footer {
+  margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: .78rem; color: var(--muted);
+}
+.preface h1 { display: none; }
+article.ch h1 { font-size: 1.45rem; line-height: 1.35; margin: 0 0 1.2rem; }
+.yuanwen-body { white-space: pre-wrap; font-size: .95rem; line-height: 1.9; }
+.vault-list { font-family: var(--sans); }
+.vault-list li { margin: .6rem 0; }
+@media (max-width: 520px) {
+  html { font-size: 17px; }
+  .wrap { padding: 1.1rem .9rem 3rem; }
+}
+</style></head><body><div class="wrap"><h1>劣币驱逐良币，电影院现象及其他</h1><p class="note">本人作品 · HZ008 · 2016-08-16 20:45 UTC+8（公众号导出时间戳） · <a href="https://www.lijiaocn.com/wechat/categories/ColinHuangZheng.html">来源</a></p><div class="yuanwen-body">发布日期：2016-08-16 12:45:38 +0000
+          很久没写公众号了，有一部分原因是想写这个题目，但又思绪很乱不知道怎么写，前些天和好朋友饭后闲聊，聊到几个点，算是有点明白，赶紧把它写下来。
+         
+1、 劣币驱逐良币从中性的立场来看
+首先劣币、良币是一个中性的概念。最早被英国财政大臣格雷欣发现的、劣币驱逐良币现象是：当市场上有两种含金量不一样的法定货币出现，并且货币供给充足的时候，人民会倾向于把含金量高的货币留在家里收藏，而把含金量低的货币先花出去。这种现象也被称之为格雷欣新现象。这种现象其实挺容易理解，符合人性，就如民国晚期，国家拼命发金圆券（纸币）来代替银元。这时候大家自然会先花纸币，对于造币厂来说，金圆券成本低并且随便印，对它来说有利，同时这对老百姓不利，是劣币。自然的，大家用脚投票，自然市场上“劣币”泛滥，良币涨价，这是大众各自出于自我保护的个体行为，这种个体行为如果没能团结起来，那么单体力量更强大的造币厂会赢，通过印金圆券，大部分人还是被掠夺走了部分个人财富。
+那么劣币驱逐良币是否是大家都想阻止的呢？其实未必，首先造币厂希望发行劣币，其次劣币的泛滥是每个民众推动的。大家在说“劣币驱逐良币”不好，有一部分原因是希望别人给他的是良币，而自己要先用掉劣币。这种自私可以理解，但其结果是所有老百姓这个总体吃亏了，每个个体想自保也保不住。大家不团结就形成不了足够的力量来抗衡指定劣币和良币同币值的强制力。
+这种现象侧面描述的是自私不团结的个体无法对抗管理者的强制力的现象，另一个角度来说，也描述了通过利用个体自私的力量来进行财富重新分配降低公共服务成本的一种现象。
+2、 电影院现象
+另一现象是电影院现象，和“劣币驱逐良币”类似，但又不同。它描述的是一个没有组织，又缺乏外部强制力的自私个体的群体，可能出现的一种集体自我伤害的现象，即，电影院里如果前排的人站起来了，那么后排的人也会站起来，结果本来大家可以坐着看的美事，变成了所有人都站着看的辛苦事。
+电影院现象，在我看来是更值得大家研究和应对的。因为它是一个群体自我伤害的现象，谁都没有真正获益，不像“劣币驱逐良币”其实是一股力量战胜了另一股力量推动了劣币的普及。当前，平时引用得多的是“劣币驱逐良币”，但大部分时候我以为指的其实是“电影院现象”。
+3、 一粒屎坏了一锅汤
+电影院里先站起来的那部分人，就如掉进汤里的一粒屎，很快整锅汤只能倒掉，这里指出的是一个比例问题。汤其实是有自我净化能力，如江河污水流入大海，如果比例很低，其实是ok的。但这个比例只要上升到一个临界点，原有的净化能力就崩溃了。很多时候我们会说一个坏现象不是主流没问题，并且它在另一个良性系统里也有，好像两边没有差别一样，这是很危险的想法。要知道坏了一锅汤的一粒屎的大小的临界点往往是很低的，也许是百分之一和百分之五的区别。百分之一能净化，百分之五就只能全部扔掉了。比方说一组人如果骗子的比例只有1%，那对群体作无罪推定这个社会是可以高效良性运转的，但有可能这个比例上升到5%、8%，再作无罪推定就会把其他人逼向骗子一方，这种情况下这个社会就只能作有罪推定，这样一来就是性质上的差异了。两个体系的文化运转效率会发生根本性的变化。但千万注意，这个量变引起的质变往往不是发生在50%，往往在一个低得多的值。在商业上，我们知道Amazon是在图书份额远低过50%时就实质上决定了图书的定价进而颠覆了图书零售业。每个人身上都带有癌细胞，正常是没事的，但如果它的复制和扩散起过某个值，你就得了癌症，而癌症要一个人的命远不需要扩散到50%。
+所以当我们讲要看主流，或者类比两个不是100%完美的体系的时候，一定要关注1%和5%的差别，千万不要以为都是小部分是同样性质的。很多时候，质变就在这1%到5%之间。
+4、改变群体自我伤害需要巨大能量
+如果一个群体一百人，有8个人是骗子，而系统研究表明要比例低于3%无罪推定体系才work，那么，为了把8个人中的5个人转化过来，花的肯定不是5个人的力气，通常得10倍的力气，即50个人同时努力才能转化5个人。一个例子是纽约整治公共场所涂鸦，据说曾经纽约曼哈顿的中央火车站每个都被人涂鸦，为了整治这个，市长花了很大的力气，每天去刷一墙，别人涂一点，他也刷全部，连续反反复复很多很多天，涂鸦才逐渐变少，然后变没有。据说新加坡治理随地吐痰也类似，付出了很多很多倍于破坏者的代价才扭转了“风气”，形成良性运营的体系。
+5、渠道有价值，贵的却好卖
+改变公众风气的一种办法是直接大范围整肃，另一种则是利用渠道，在商业上有个值得讨论的现象是有时候东西贵了反而好卖。比方说空调这样的产品，需要有人安装，也需要有人推荐，有可能类似小米的互联网直销，把价格打到“最低”还不如“格力”给安装者、渠道以足够利润，虽然看起来渠道的做法抬高了商品的价钱，但实践当中，渠道和服务成本也许是维护某种公共认识最节省的、良性的做法。这种渠道和服务成本是必须的，它把维护某种秩序的代价体现在的明处，而忽略了这种代价的体系可能会走向“劣币驱逐良币”，这种违反经济学教科书所讲的价格供求线原理的现象其实非常非常多。查理.芝格在他的书里就多次说过，我们在消费品，商用软件，硬件等领域也很容易找到这样的例子，这种贵的反而卖的好的现象甚至都有可能是好些领域的主流。</div>
+<p class="note"><a href="index.html">← 返回全部原文目录</a> · <a href="../index.html">回读本首页</a></p>
+</div></body></html>
