@@ -1,4 +1,4 @@
-name: Enable GitHub Pages
+name: Deploy GitHub Pages
 
 on:
   push:
@@ -9,7 +9,6 @@ permissions:
   contents: read
   pages: write
   id-token: write
-  administration: write
 
 concurrency:
   group: pages
@@ -25,66 +24,36 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Enable Pages from main
-        id: enable
+      - name: Ensure Pages is enabled
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           set -uo pipefail
           REPO="${{ github.repository }}"
-          echo "=== current ==="
+          echo "=== current pages site ==="
           gh api "repos/${REPO}/pages" || true
-          echo "=== create legacy ==="
-          gh api --method POST "repos/${REPO}/pages" \
-            -f build_type=legacy \
-            -f source[branch]='${{ github.ref_name }}' \
-            -f source[path]=/ || true
-          echo "=== update legacy ==="
-          gh api --method PUT "repos/${REPO}/pages" \
-            -f build_type=legacy \
-            -f source[branch]='${{ github.ref_name }}' \
-            -f source[path]=/ || true
-          echo "=== public visibility ==="
+          echo "=== create workflow pages site ==="
+          gh api --method POST "repos/${REPO}/pages" -f build_type=workflow || true
+          echo "=== update pages site ==="
+          gh api --method PUT "repos/${REPO}/pages" -f build_type=workflow || true
+          echo "=== request public visibility ==="
           gh api --method PUT "repos/${REPO}/pages" -F public=true || true
-          BUILD_TYPE="$(gh api "repos/${REPO}/pages" --jq '.build_type' 2>/dev/null || echo missing)"
-          HTML_URL="$(gh api "repos/${REPO}/pages" --jq '.html_url' 2>/dev/null || echo "")"
-          echo "build_type=${BUILD_TYPE}"
-          echo "html_url=${HTML_URL}"
-          echo "build_type=${BUILD_TYPE}" >> "$GITHUB_OUTPUT"
-          echo "html_url=${HTML_URL}" >> "$GITHUB_OUTPUT"
-          if [ "${BUILD_TYPE}" = "legacy" ]; then
-            echo "=== request build ==="
-            gh api --method POST "repos/${REPO}/pages/builds" || true
-          fi
+          echo "=== pages site now ==="
+          gh api "repos/${REPO}/pages" || true
 
       - name: Stage site
-        if: steps.enable.outputs.build_type != 'legacy'
         run: |
           mkdir -p _site
           cp index.html _site/index.html
 
-      - name: Switch Pages to GitHub Actions
-        if: steps.enable.outputs.build_type != 'legacy'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          set -uo pipefail
-          REPO="${{ github.repository }}"
-          gh api --method POST "repos/${REPO}/pages" -f build_type=workflow || true
-          gh api --method PUT "repos/${REPO}/pages" -f build_type=workflow || true
-          gh api "repos/${REPO}/pages" || true
-
       - name: Setup Pages
-        if: steps.enable.outputs.build_type != 'legacy'
         uses: actions/configure-pages@v5
 
       - name: Upload artifact
-        if: steps.enable.outputs.build_type != 'legacy'
         uses: actions/upload-pages-artifact@v3
         with:
           path: _site
 
       - name: Deploy to GitHub Pages
-        if: steps.enable.outputs.build_type != 'legacy'
         id: deployment
         uses: actions/deploy-pages@v4
