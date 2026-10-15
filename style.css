@@ -44,6 +44,9 @@ nav.top a { color: var(--accent); }
 .book-tag { color: var(--muted); }
 .book-authors { margin: 1.5rem 0 .2rem; font-family: var(--sans); }
 .book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; }
+.cta-main { margin: 1.6rem auto 1.4rem; padding: 1.25rem 1rem; background: var(--accent); border: none; border-radius: 12px; box-shadow: 0 6px 18px rgba(139,58,26,.25); max-width: 26rem; }
+.cta-main a { color: #fff; font-size: 1.45rem; letter-spacing: .08em; }
+.cta-main .hint { color: #f6e7dc; font-size: .85rem; }
 hr { border: none; border-top: 1px solid var(--line); margin: 1.5rem 0; }
 h2 { font-size: 1.25rem; margin: 2rem 0 .8rem; line-height: 1.4; }
 h3 { font-size: 1.08rem; margin: 1.5rem 0 .6rem; }
