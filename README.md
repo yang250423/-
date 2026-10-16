@@ -2,6 +2,7 @@
 
 - `index.html` — 封面 + 前言 + 目录
 - `book.html` — 全书通读（前言 + 第 1–20 章一页连载）
+- `本分-黄峥这个人.epub` — EPUB 电子书（前言 + 第 1–20 章；build.py 自动生成）
 - `ch/*.html` — 各章
 - `appendix/weibo.html` — 附录 D：微博上没有黄峥
 - `yuanwen/` — 本人原文（公开全文）
