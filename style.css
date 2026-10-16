@@ -116,6 +116,22 @@ blockquote p:last-child { margin: 0; }
 .mark {
   display: inline; white-space: nowrap; font-size: .92em; color: #5a4030;
 }
+.mark-strong { color: var(--accent); }
+.mark-self { color: #5c5230; }
+.mark-media { color: #7d6e62; }
+.mark-weak { color: #9a918a; font-style: italic; text-decoration: underline dotted #c8bfb6; text-underline-offset: .2em; }
+.mark-legend {
+  font-family: var(--sans); font-size: .76rem; color: var(--muted); line-height: 1.7;
+  margin: -.6rem 0 1.4rem;
+}
+.mark-legend > span { white-space: nowrap; }
+.mark-legend .mark { font-size: 1em; }
+.read-progress {
+  display: none; position: fixed; top: 0; left: 0; right: 0; height: 2px; z-index: 50;
+  background: var(--accent); transform-origin: 0 50%; transform: scaleX(0);
+  transition: transform .1s linear; pointer-events: none;
+}
+@media (prefers-reduced-motion: reduce) { .read-progress { transition: none; } }
 .vault-link {
   display: block; margin: .35rem 0 1rem;
   font-family: var(--sans); font-size: .82rem; color: var(--accent);
