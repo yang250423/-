@@ -8,9 +8,9 @@
   --muted: #666;
   --line: #e5e0d8;
   --accent: #8b3a1a;
-  --link: #0b5fff;
+  --link: #6b3418;
   --quote-bg: #f3efe8;
-  --max: 40rem;
+  --max: 42rem;
   --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
   --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
 }
@@ -19,16 +19,19 @@ html { font-size: 18px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); background: var(--bg);
   font-family: var(--font); line-height: 1.85;
+  word-break: keep-all; overflow-wrap: break-word; line-break: strict;
 }
 a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
 a:hover { border-bottom-color: currentColor; }
-.wrap { max-width: var(--max); margin: 0 auto; padding: 1.5rem 1.1rem 4rem; }
+.wrap { max-width: var(--max); margin: 0 auto; padding: 2rem 1.35rem 4.5rem; }
 header.site {
   border-bottom: 1px solid var(--line); padding-bottom: 1rem; margin-bottom: 1.75rem;
 }
 header.site .brand { font-family: var(--sans); font-size: .85rem; color: var(--muted); letter-spacing: .04em; }
+header.site .brand a { color: var(--accent); border: none; }
 header.site h1 { font-size: 1.55rem; margin: .4rem 0 .3rem; line-height: 1.35; font-weight: 700; }
-header.site .sub { color: var(--muted); font-size: .95rem; margin: 0; }
+header.site .sub { color: var(--muted); font-size: .95rem; margin: .35rem 0 0; }
+header.site .sub:empty { display: none; }
 nav.top {
   display: flex; flex-wrap: wrap; gap: .6rem 1rem;
   font-family: var(--sans); font-size: .88rem; margin: 1rem 0 0;
@@ -36,23 +39,30 @@ nav.top {
 nav.top a { color: var(--accent); }
 .cta {
   display: block; margin: 1.25rem 0 1.75rem; padding: 1rem 1.15rem;
-  background: #fff; border: 2px solid var(--accent); border-radius: 10px;
+  background: #fff; border: 1.5px solid var(--accent); border-radius: 10px;
   font-family: var(--sans); text-align: center;
 }
 .cta a { color: var(--accent); font-weight: 700; font-size: 1.05rem; border: none; }
-.cta .hint { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; font-weight: 400; }
-.cover { text-align: center; padding: 2.5rem 0 1rem; }
-.book-title { font-size: 2.6rem; letter-spacing: .3em; margin: 0; }
-.book-sub { font-size: 1.2rem; margin: .4rem 0 1.2rem; }
-.book-tag { color: var(--muted); }
-.book-authors { margin: 1.5rem 0 .2rem; font-family: var(--sans); }
-.book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; }
-.cta-main { margin: 1.6rem auto 1.4rem; padding: 1.25rem 1rem; background: var(--accent); border: none; border-radius: 12px; box-shadow: 0 6px 18px rgba(139,58,26,.25); max-width: 26rem; }
-.cta-main a { color: #fff; font-size: 1.45rem; letter-spacing: .08em; }
-.cta-main .hint { color: #f6e7dc; font-size: .85rem; }
-hr { border: none; border-top: 1px solid var(--line); margin: 1.5rem 0; }
-h2 { font-size: 1.25rem; margin: 2rem 0 .8rem; line-height: 1.4; }
-h3 { font-size: 1.08rem; margin: 1.5rem 0 .6rem; }
+.cta .hint { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; font-weight: 400; line-height: 1.45; }
+.cover { text-align: center; padding: 2.75rem 0 1.25rem; }
+.book-title {
+  font-size: 2.75rem; letter-spacing: .12em; margin: 0;
+  padding-left: .12em; font-weight: 700; line-height: 1.2;
+}
+.book-sub { font-size: 1.15rem; margin: .55rem 0 1.5rem; color: #333; }
+.book-tag { color: var(--muted); max-width: 22rem; margin: 0 auto 1.25rem; line-height: 1.6; }
+.book-authors { margin: 1.25rem 0 .25rem; font-family: var(--sans); }
+.book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; margin: 0; }
+.cta-main {
+  margin: 0 auto 1.5rem; padding: .95rem 1.1rem;
+  background: #fff; border: 1.5px solid var(--accent); border-radius: 10px;
+  box-shadow: none; max-width: 22rem;
+}
+.cta-main a { color: var(--accent); font-size: 1.12rem; letter-spacing: .06em; font-weight: 700; border: none; }
+.cta-main .hint { color: var(--muted); font-size: .8rem; margin-top: .4rem; }
+hr { border: none; border-top: 1px solid var(--line); margin: 1.75rem 0; }
+h2 { font-size: 1.25rem; margin: 2.25rem 0 .85rem; line-height: 1.4; }
+h3 { font-size: 1.08rem; margin: 1.6rem 0 .6rem; }
 p { margin: 0 0 1rem; }
 strong { font-weight: 700; }
 ul, ol { padding-left: 1.3rem; margin: 0 0 1rem; }
@@ -68,32 +78,50 @@ blockquote p:last-child { margin: 0; }
   font-family: var(--sans); font-size: .82rem; color: var(--muted);
   border-top: 1px solid var(--line); margin-top: 2rem; padding-top: .8rem;
 }
-.toc { list-style: none; padding: 0; margin: 0; font-family: var(--sans); }
+.toc { list-style: none; padding: 0; margin: .5rem 0 0; font-family: var(--sans); }
 .toc li { margin: 0; border-bottom: 1px solid var(--line); }
+.toc li.sec {
+  border-bottom: none;
+  margin: 1.85rem 0 .15rem;
+  padding: .15rem 0;
+  font-size: .92rem; font-weight: 600; color: var(--accent);
+  letter-spacing: .14em; text-transform: none;
+}
+.toc li.sec:first-child { margin-top: .6rem; }
 .toc a {
-  display: flex; gap: .75rem; padding: .7rem 0; color: var(--ink); border: none;
+  display: flex; gap: .85rem; align-items: baseline;
+  padding: .85rem 0; color: var(--ink); border: none; line-height: 1.45;
 }
 .toc a:hover { color: var(--accent); }
-.toc .n { color: var(--muted); min-width: 1.6rem; font-variant-numeric: tabular-nums; }
-.toc .sec {
-  margin: 1.4rem 0 .5rem; font-size: .8rem; color: var(--muted);
-  letter-spacing: .08em; text-transform: uppercase; border: none; padding: 0;
+.toc .n {
+  color: var(--muted); min-width: 1.7rem; flex: 0 0 auto;
+  font-variant-numeric: tabular-nums; font-size: .92em;
 }
+.toc a span:last-child { flex: 1 1 auto; min-width: 0; }
 .nav-bottom {
-  display: flex; justify-content: space-between; gap: 1rem;
-  margin-top: 2.5rem; padding-top: 1rem; border-top: 1px solid var(--line);
-  font-family: var(--sans); font-size: .9rem;
+  display: flex; justify-content: space-between; gap: 1.25rem;
+  margin-top: 2.75rem; padding-top: 1.15rem; border-top: 1px solid var(--line);
+  font-family: var(--sans); font-size: .88rem;
 }
-.nav-bottom a { color: var(--accent); }
+.nav-bottom > div { flex: 1 1 0; min-width: 0; }
+.nav-bottom > div:last-child { text-align: right; }
+.nav-bottom a {
+  color: var(--accent); display: block; line-height: 1.4;
+  border: none;
+}
 .nav-bottom .disabled { color: #bbb; }
 .tag {
   display: inline-block; font-family: var(--sans); font-size: .72rem;
   padding: .1rem .4rem; border-radius: 4px; background: #efe8df; color: #5a4030;
-  margin-left: .25rem; vertical-align: middle;
+  margin-left: .25rem; vertical-align: middle; white-space: nowrap;
+}
+.mark {
+  display: inline; white-space: nowrap; font-size: .92em; color: #5a4030;
 }
 .vault-link {
   display: block; margin: .35rem 0 1rem;
   font-family: var(--sans); font-size: .82rem; color: var(--accent);
+  line-height: 1.5;
 }
 .yw-box {
   margin: 1.5rem 0; padding: 1rem; background: #fff; border: 1px solid var(--line);
@@ -102,19 +130,35 @@ blockquote p:last-child { margin: 0; }
 .yw-box a { margin-right: .8rem; }
 footer {
   margin-top: 3rem; padding-top: 1rem; border-top: 1px solid var(--line);
-  font-family: var(--sans); font-size: .78rem; color: var(--muted);
+  font-family: var(--sans); font-size: .78rem; color: var(--muted); line-height: 1.55;
 }
 footer .stats {
-  opacity: .6; font-size: .85rem; margin-top: 1.25rem; margin-bottom: 0;
+  opacity: .65; font-size: .85rem; margin-top: 1.25rem; margin-bottom: 0;
 }
 .preface h1 { display: none; }
-article.ch h1 { font-size: 1.45rem; line-height: 1.35; margin: 0 0 1.2rem; }
+article.ch h1 {
+  font-size: 1.55rem; line-height: 1.4; margin: 0 0 1.35rem; font-weight: 700;
+}
 .yuanwen-body { white-space: pre-wrap; font-size: .95rem; line-height: 1.9; }
 .vault-list { font-family: var(--sans); }
 .vault-list li { margin: .6rem 0; }
 @media (max-width: 520px) {
   html { font-size: 17px; }
-  .wrap { padding: 1.1rem .9rem 3rem; }
+  .wrap { padding: 1.15rem 1rem 3.25rem; }
+  .cover { padding: 1.75rem 0 1rem; }
+  .book-title { font-size: 2.2rem; letter-spacing: .1em; padding-left: .1em; }
+  .book-sub { font-size: 1.05rem; margin-bottom: 1.2rem; }
+  .cta-main { padding: .85rem 1rem; max-width: none; }
+  .cta-main a { font-size: 1.05rem; }
+  .book-tag { max-width: none; padding: 0 .25rem; }
+  .toc a { padding: .95rem 0; }
+  .toc li.sec { margin-top: 1.55rem; letter-spacing: .1em; }
+  .nav-bottom { flex-direction: column; gap: .85rem; }
+  .nav-bottom > div:last-child { text-align: left; }
+  article.ch h1 { font-size: 1.35rem; }
+}
+@media (min-width: 900px) {
+  .wrap { padding-top: 2.5rem; }
 }
 </style></head><body><div class="wrap"><h1>Family Council：MTD 驳回转述</h1><p class="note">媒体报道 · HZ174 · 本站只提供摘要与简短引语，全文请到原始来源阅读</p><h2>摘要</h2><p>Family Council 2026-08-05：转述阿肯色州法官 2026-07-15 驳回 Temu MTD；另给至 8/28 答辩。非裁定原件。</p><h2>关键引语</h2><blockquote><p>On July 15, Judge Meyer in Little Rock denied that motion to dismiss.</p></blockquote><p><a href="https://familycouncil.org/2026/08/05/arkansas-judge-denies-temus-motion-to-dismiss-a-g-griffins-lawsuit/" target="_blank" rel="noopener">→ 阅读原文（原始来源）</a></p>
 <p class="note"><a href="index.html">← 返回全部原文目录</a> · <a href="../index.html">回读本首页</a></p>
