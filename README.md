@@ -1,6 +1,7 @@
 # 黄峥读本（静态站）
 
-- `index.html` — 前言 + 目录；首页醒目入口「全部原文」
+- `index.html` — 封面 + 前言 + 目录
+- `book.html` — 全书通读（前言 + 第 1–20 章一页连载）
 - `ch/*.html` — 各章
 - `appendix/weibo.html` — 附录 D：微博上没有黄峥
 - `yuanwen/` — 本人原文（公开全文）

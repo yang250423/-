@@ -2,7 +2,7 @@
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>市场多一点，还是计划多一点——关于供给侧改革的一点想法</title>
 <style>
-/* layout-v1 deployed 2026-10-16 */
+/* layout-v3 book jacket + full book · 2026-10-17 */
 :root {
   --bg: #faf8f5;
   --ink: #1a1a1a;
@@ -45,23 +45,126 @@ nav.top a { color: var(--accent); }
 }
 .cta a { color: var(--accent); font-weight: 700; font-size: 1.05rem; border: none; }
 .cta .hint { display: block; margin-top: .35rem; color: var(--muted); font-size: .82rem; font-weight: 400; line-height: 1.45; }
-.cover { text-align: center; padding: 2.75rem 0 1.25rem; }
-.book-title {
-  font-size: 2.75rem; letter-spacing: .12em; margin: 0;
-  padding-left: .12em; font-weight: 700; line-height: 1.2;
+/* layout-v3: book-jacket cover + full-book page */
+body.home header.site .brand { display: none; }
+body.home header.site { border-bottom: none; padding-bottom: 0; margin-bottom: .5rem; }
+.cover {
+  text-align: center; padding: 1.5rem 0 1.75rem;
+  display: flex; flex-direction: column; align-items: center;
 }
-.book-sub { font-size: 1.15rem; margin: .55rem 0 1.5rem; color: #333; }
-.book-tag { color: var(--muted); max-width: 22rem; margin: 0 auto 1.25rem; line-height: 1.6; }
-.book-authors { margin: 1.25rem 0 .25rem; font-family: var(--sans); }
-.book-date { color: var(--muted); font-family: var(--sans); font-size: .85rem; margin: 0; }
-.cta-main {
-  margin: 0 auto 1.5rem; padding: .95rem 1.1rem;
-  background: #fff; border: 1.5px solid var(--accent); border-radius: 10px;
-  box-shadow: none; max-width: 22rem;
+.cover-plate {
+  width: 100%; max-width: 24rem;
+  margin: 0 auto;
+  padding: 2.25rem 1.75rem 2rem;
+  background: #fffdf9;
+  border: 1px solid var(--line);
+  box-shadow:
+    0 0 0 1px #fff inset,
+    0 0 0 4px var(--bg),
+    0 0 0 5px #d9d0c4,
+    0 10px 28px rgba(60, 40, 20, .08);
 }
-.cta-main a { color: var(--accent); font-size: 1.12rem; letter-spacing: .06em; font-weight: 700; border: none; }
-.cta-main .hint { color: var(--muted); font-size: .8rem; margin-top: .4rem; }
+.cover-eyebrow {
+  font-family: var(--sans); font-size: .72rem; letter-spacing: .28em;
+  color: var(--accent); margin: 0 0 1.15rem; text-transform: none;
+}
+.cover-plate .book-title {
+  font-size: 2.65rem; letter-spacing: .18em; margin: 0;
+  padding-left: .18em; font-weight: 700; line-height: 1.15;
+}
+.cover-plate .book-sub {
+  font-size: 1.08rem; margin: .7rem 0 0; color: #333;
+  letter-spacing: .08em;
+}
+.cover-plate .book-rule {
+  display: block; width: 2.5rem; height: 1px;
+  background: var(--accent); opacity: .45;
+  margin: 1.15rem auto;
+}
+.cover-plate .book-tag {
+  color: var(--muted); margin: 0 auto; line-height: 1.65;
+  font-size: .92rem; max-width: 18rem;
+}
+.cover-plate .book-authors {
+  margin: 1.35rem 0 .2rem; font-family: var(--sans); font-size: .9rem;
+}
+.cover-plate .book-date {
+  color: var(--muted); font-family: var(--sans); font-size: .82rem; margin: 0;
+}
+.cover-actions { margin-top: 1.5rem; width: 100%; max-width: 24rem; }
+.cover-primary {
+  display: inline-block; font-family: var(--sans);
+  font-size: .95rem; font-weight: 600; letter-spacing: .12em;
+  color: #fff; background: var(--accent); border: none;
+  padding: .65rem 1.6rem; border-radius: 2px;
+}
+.cover-primary:hover { border-bottom: none; opacity: .92; }
+.cover-secondary {
+  margin: .85rem 0 0; font-family: var(--sans); font-size: .82rem;
+  color: var(--muted);
+}
+.cover-secondary a { color: var(--muted); border-bottom-color: transparent; }
+.cover-secondary a:hover { color: var(--accent); }
+.cover-secondary .sep { margin: 0 .45rem; opacity: .5; }
+.cover-secondary a.cover-orig { font-size: .8rem; }
 hr { border: none; border-top: 1px solid var(--line); margin: 1.75rem 0; }
+/* full-book page */
+.book-full-head {
+  text-align: center; padding: .5rem 0 1.25rem;
+  border-bottom: 1px solid var(--line); margin-bottom: 1.25rem;
+}
+.book-full-head .cover-eyebrow { margin-bottom: .6rem; }
+.book-full-head h1 {
+  font-size: 1.55rem; margin: 0; letter-spacing: .08em; font-weight: 700; line-height: 1.35;
+}
+.book-full-tag {
+  font-family: var(--sans); font-size: .82rem; color: var(--muted);
+  letter-spacing: .14em; margin: .55rem 0 0;
+}
+.book-mini-toc {
+  font-family: var(--sans); font-size: .84rem;
+  margin: 0 0 2rem; padding: 1rem 0 0;
+}
+.book-mini-toc-label {
+  font-size: .78rem; color: var(--accent); letter-spacing: .18em;
+  margin: 0 0 .6rem; font-weight: 600;
+}
+.book-mini-toc ul { list-style: none; padding: 0; margin: 0; }
+.book-mini-toc li { margin: 0; border-bottom: 1px solid var(--line); }
+.book-mini-toc li.sec {
+  border-bottom: none; margin: 1rem 0 .1rem;
+  font-size: .78rem; font-weight: 600; color: var(--accent);
+  letter-spacing: .12em;
+}
+.book-mini-toc a {
+  display: flex; gap: .7rem; align-items: baseline;
+  padding: .45rem 0; color: var(--ink); border: none; line-height: 1.4;
+}
+.book-mini-toc a:hover { color: var(--accent); }
+.book-mini-toc .n {
+  color: var(--muted); min-width: 1.5rem; flex: 0 0 auto;
+  font-variant-numeric: tabular-nums; font-size: .9em;
+}
+.book-full .ch-block {
+  margin: 2.75rem 0 0; padding-top: 1.75rem;
+  border-top: 1px double var(--line);
+}
+.book-full .ch-block:first-of-type { margin-top: 1.5rem; }
+.book-full .ch-run {
+  font-family: var(--sans); font-size: .78rem; color: var(--muted);
+  letter-spacing: .06em; margin: 0 0 .85rem;
+}
+.book-full .ch-run-label { color: var(--accent); }
+.book-full article.ch h1,
+.book-full article.ch h2.ch-title {
+  font-size: 1.35rem; line-height: 1.4; margin: 0 0 1.1rem; font-weight: 700;
+}
+.book-full .preface h2 { font-size: 1.25rem; margin: 0 0 1rem; }
+@media print {
+  .book-full .ch-block { page-break-before: always; border-top: none; padding-top: 0; }
+  .book-full .ch-block:first-of-type { page-break-before: auto; }
+  .read-progress, nav.top, .cover-actions { display: none !important; }
+}
 h2 { font-size: 1.25rem; margin: 2.25rem 0 .85rem; line-height: 1.4; }
 h3 { font-size: 1.08rem; margin: 1.6rem 0 .6rem; }
 p { margin: 0 0 1rem; }
@@ -162,17 +265,20 @@ article.ch h1 {
 @media (max-width: 520px) {
   html { font-size: 17px; }
   .wrap { padding: 1.15rem 1rem 3.25rem; }
-  .cover { padding: 1.75rem 0 1rem; }
-  .book-title { font-size: 2.2rem; letter-spacing: .1em; padding-left: .1em; }
-  .book-sub { font-size: 1.05rem; margin-bottom: 1.2rem; }
-  .cta-main { padding: .85rem 1rem; max-width: none; }
-  .cta-main a { font-size: 1.05rem; }
-  .book-tag { max-width: none; padding: 0 .25rem; }
+  .cover { padding: 1rem 0 1.25rem; }
+  .cover-plate { padding: 1.75rem 1.15rem 1.5rem; max-width: none; }
+  .cover-plate .book-title { font-size: 2.3rem; letter-spacing: .12em; padding-left: .12em; }
+  .cover-plate .book-sub { font-size: 1rem; }
+  .cover-plate .book-tag { max-width: none; font-size: .88rem; }
+  .cover-actions { max-width: none; }
+  .cover-primary { display: block; text-align: center; }
   .toc a { padding: .95rem 0; }
   .toc li.sec { margin-top: 1.55rem; letter-spacing: .1em; }
   .nav-bottom { flex-direction: column; gap: .85rem; }
   .nav-bottom > div:last-child { text-align: left; }
   article.ch h1 { font-size: 1.35rem; }
+  .book-full-head h1 { font-size: 1.3rem; }
+  .book-full .ch-block { margin-top: 2.25rem; padding-top: 1.4rem; }
 }
 @media (min-width: 900px) {
   .wrap { padding-top: 2.5rem; }
