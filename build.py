@@ -25,10 +25,12 @@ BOOK_ID = "urn:uuid:1e76c89b-dd49-5f18-b4fb-ebd9f2ff9230"
 EPUB = "本分-黄峥这个人.epub"
 XHTML = "http://www.w3.org/1999/xhtml"
 OPF = "http://www.idpf.org/2007/opf"
-SOURCES = ["index.html"] + [f"ch/{n:02}.html" for n in range(1, 22)] + ["appendix/weibo.html"]
-DEST = {name: ("preface.xhtml", "ch-00") if n == 0 else
-        (f"ch{n:02}.xhtml", f"ch-{n:02}") if n <= 21 else
-        ("appendix.xhtml", "appendix-d") for n, name in enumerate(SOURCES)}
+CHAPTERS = [path.relative_to(ROOT).as_posix()
+            for path in sorted((ROOT / "ch").glob("[0-9][0-9].html")) if path.is_file()]
+SOURCES = ["index.html"] + CHAPTERS + ["appendix/weibo.html"]
+DEST = {"index.html": ("preface.xhtml", "ch-00"),
+        **{name: (f"ch{Path(name).stem}.xhtml", f"ch-{Path(name).stem}") for name in CHAPTERS},
+        "appendix/weibo.html": ("appendix.xhtml", "appendix-d")}
 VOID = set("area base br col embed hr img input link meta param source track wbr".split())
 BLOCK = set("article aside blockquote div dl fieldset figure footer form h1 h2 h3 h4 h5 h6 header hr main nav ol p pre section table ul".split())
 
@@ -154,6 +156,9 @@ def xhtml(title, body):
 
 
 def collect():
+    if not CHAPTERS or [int(Path(name).stem) for name in CHAPTERS] != list(range(1, len(CHAPTERS) + 1)):
+        raise ValueError("ch/ must contain consecutive two-digit chapters starting at 01; found " +
+                         (", ".join(Path(name).stem for name in CHAPTERS) or "none"))
     texts = {name: (ROOT / name).read_text(encoding="utf-8") for name in SOURCES}
     parsed = {name: HTML(text, name) for name, text in texts.items()}
     articles = {name: find(doc.root, "article", "preface" if name == "index.html" else "ch") for name, doc in parsed.items()}
@@ -173,7 +178,7 @@ def collect():
                 label = " ".join("".join(n.itertext()).strip() for n in anchor)
                 entries.append((group, link[0], label))
     if [e[1] for e in entries] != SOURCES:
-        raise ValueError("index.html must list chapters 01–21 and the Weibo appendix once, in order")
+        raise ValueError(f"index.html must list chapters 01–{len(CHAPTERS):02} and the Weibo appendix once, in order")
     dates = re.findall(r"本站最近更新：(\d{4}-\d\d-\d\d \d\d:\d\d)", "\n".join(texts.values()))
     date = datetime.strptime(max(dates), "%Y-%m-%d %H:%M").replace(tzinfo=timezone(timedelta(hours=8))) if dates else datetime(2026, 10, 1, tzinfo=timezone.utc)
     return parsed, articles, cover, entries, date.astimezone(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
