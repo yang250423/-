@@ -273,3 +273,17 @@ blockquote.epigraph .epigraph-label { opacity: .8; margin-left: .35rem; white-sp
 @media (min-width: 900px) {
   .wrap { padding-top: 2.5rem; }
 }
+
+/* Independent editorial afterword. */
+.editorial-review .review-byline { font-family: var(--sans); font-size: .85rem; color: var(--muted); }
+.editorial-review .review-scope { margin: 1rem 0 1.75rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
+.editorial-review .review-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 2rem; font-size: .9rem; line-height: 1.7; }
+.editorial-review .review-table caption { text-align: left; font-family: var(--sans); color: var(--muted); font-size: .85rem; margin-bottom: .6rem; }
+.editorial-review .review-table th, .editorial-review .review-table td { text-align: left; vertical-align: top; padding: .7rem .55rem; border-bottom: 1px solid var(--line); }
+.editorial-review .review-table thead { background: var(--quote-bg); font-family: var(--sans); }
+.editorial-review .review-table th:first-child { width: 6.3rem; font-family: var(--sans); font-weight: 400; }
+.editorial-review .review-table thead th { font-weight: 700; }
+@media (max-width: 520px) {
+  .editorial-review .review-table th:first-child { width: 4.8rem; }
+  .editorial-review .review-table th, .editorial-review .review-table td { padding: .65rem .35rem; }
+}
