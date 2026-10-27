@@ -4,24 +4,28 @@
 <style>
 /* layout-v3 book jacket + full book · 2026-10-17 */
 :root {
-  --bg: #faf8f5;
-  --ink: #1a1a1a;
+  --bg: #fdfcfa;
+  --ink: #333;
   --muted: #666;
   --line: #e5e0d8;
   --accent: #8b3a1a;
   --link: #6b3418;
   --quote-bg: #f3efe8;
-  --max: 42rem;
+  --max: 38rem;
   --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
-  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --body: var(--sans);
 }
 * { box-sizing: border-box; }
-html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); background: var(--bg);
-  font-family: var(--font); line-height: 1.85;
-  word-break: keep-all; overflow-wrap: break-word; line-break: strict;
+  font-family: var(--body); line-height: 1.8; letter-spacing: .03em;
+  overflow-wrap: break-word; line-break: strict; text-align: start;
+  -webkit-font-smoothing: antialiased;
 }
+p { margin: 0 0 1.15em; }
+h1, h2, h3, .book-title, .cover-title { font-family: var(--font); color: #1a1a1a; letter-spacing: .02em; }
 a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
 a:hover { border-bottom-color: currentColor; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem 1.35rem 4.5rem; }

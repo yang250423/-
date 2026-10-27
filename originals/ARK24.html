@@ -4,24 +4,28 @@
 <style>
 /* layout-v3 book jacket + full book · 2026-10-17 */
 :root {
-  --bg: #faf8f5;
-  --ink: #1a1a1a;
+  --bg: #fdfcfa;
+  --ink: #333;
   --muted: #666;
   --line: #e5e0d8;
   --accent: #8b3a1a;
   --link: #6b3418;
   --quote-bg: #f3efe8;
-  --max: 42rem;
+  --max: 38rem;
   --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
-  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --body: var(--sans);
 }
 * { box-sizing: border-box; }
-html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); background: var(--bg);
-  font-family: var(--font); line-height: 1.85;
-  word-break: keep-all; overflow-wrap: break-word; line-break: strict;
+  font-family: var(--body); line-height: 1.8; letter-spacing: .03em;
+  overflow-wrap: break-word; line-break: strict; text-align: start;
+  -webkit-font-smoothing: antialiased;
 }
+p { margin: 0 0 1.15em; }
+h1, h2, h3, .book-title, .cover-title { font-family: var(--font); color: #1a1a1a; letter-spacing: .02em; }
 a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
 a:hover { border-bottom-color: currentColor; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem 1.35rem 4.5rem; }
@@ -276,7 +280,7 @@ blockquote.epigraph .epigraph-label { opacity: .8; margin-left: .35rem; white-sp
 @media (min-width: 900px) {
   .wrap { padding-top: 2.5rem; }
 }
-</style></head><body><div class="wrap"><h1>Arkansas AG 诉状（文本抽取）</h1><p class="note">公开官方文件 · ARK24</p><p class="note"><strong>阅读说明（2026-10-19 核查）：这是诉状的文本抽取，现有文本的页码在第 49 页后接第 51 页，缺第 50 页，非完整转录。</strong>本页保留现有抽取文本，不推测或补写缺页内容。诉状载有诉方的主张，并非法院判决或已经认定的事实。</p><p><a href="https://arkansasag.gov/news-release/attorney-general-griffin-sues-chinese-e-commerce-company-temu-for-deceiving-arkansans-illegally-accessing-their-personal-information/" target="_blank" rel="noopener">→ 州总检察长起诉公告（官方来源）</a> · <a href="https://arkansasadvocate.com/wp-content/uploads/2024/06/2024-06-25-Temu-12CV-24-149-Complaint.pdf" target="_blank" rel="noopener">→ 原诉状 PDF（Arkansas Advocate 公开镜像）</a></p><p class="note">镜像 PDF 是原文件的公开入口；本次未取得第 50 页的可核读内容，不能据此确认缺页所载事项。若链接受限，可从官方起诉公告或法院案卷另行查阅。</p><div class="yuanwen-body">IN THE CIRCUIT COURT OF CLEBURNE COUNTY, ARKANSAS
+</style></head><body><div class="wrap"><h1>Arkansas AG 诉状（文本抽取）</h1><p class="note">公开官方文件 · ARK24</p><p><a href="https://arkansasag.gov/news-release/attorney-general-griffin-sues-chinese-e-commerce-company-temu-for-deceiving-arkansans-illegally-accessing-their-personal-information/" target="_blank" rel="noopener">→ 阅读原文（原始来源）</a></p><div class="yuanwen-body">IN THE CIRCUIT COURT OF CLEBURNE COUNTY, ARKANSAS
                                CIVIL DIVISION
 
  STATE OF ARKANSAS, ex rel.

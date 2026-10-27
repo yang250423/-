@@ -1,24 +1,28 @@
 
 /* layout-v3 book jacket + full book · 2026-10-17 */
 :root {
-  --bg: #faf8f5;
-  --ink: #1a1a1a;
+  --bg: #fdfcfa;
+  --ink: #333;
   --muted: #666;
   --line: #e5e0d8;
   --accent: #8b3a1a;
   --link: #6b3418;
   --quote-bg: #f3efe8;
-  --max: 42rem;
+  --max: 38rem;
   --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
-  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --body: var(--sans);
 }
 * { box-sizing: border-box; }
-html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); background: var(--bg);
-  font-family: var(--font); line-height: 1.85;
-  word-break: keep-all; overflow-wrap: break-word; line-break: strict;
+  font-family: var(--body); line-height: 1.8; letter-spacing: .03em;
+  overflow-wrap: break-word; line-break: strict; text-align: start;
+  -webkit-font-smoothing: antialiased;
 }
+p { margin: 0 0 1.15em; }
+h1, h2, h3, .book-title, .cover-title { font-family: var(--font); color: #1a1a1a; letter-spacing: .02em; }
 a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
 a:hover { border-bottom-color: currentColor; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem 1.35rem 4.5rem; }
@@ -272,18 +276,4 @@ blockquote.epigraph .epigraph-label { opacity: .8; margin-left: .35rem; white-sp
 }
 @media (min-width: 900px) {
   .wrap { padding-top: 2.5rem; }
-}
-
-/* Independent editorial afterword. */
-.editorial-review .review-byline { font-family: var(--sans); font-size: .85rem; color: var(--muted); }
-.editorial-review .review-scope { margin: 1rem 0 1.75rem; padding: .85rem 0; border-bottom: 1px solid var(--line); }
-.editorial-review .review-table { width: 100%; border-collapse: collapse; margin: 1.25rem 0 2rem; font-size: .9rem; line-height: 1.7; }
-.editorial-review .review-table caption { text-align: left; font-family: var(--sans); color: var(--muted); font-size: .85rem; margin-bottom: .6rem; }
-.editorial-review .review-table th, .editorial-review .review-table td { text-align: left; vertical-align: top; padding: .7rem .55rem; border-bottom: 1px solid var(--line); }
-.editorial-review .review-table thead { background: var(--quote-bg); font-family: var(--sans); }
-.editorial-review .review-table th:first-child { width: 6.3rem; font-family: var(--sans); font-weight: 400; }
-.editorial-review .review-table thead th { font-weight: 700; }
-@media (max-width: 520px) {
-  .editorial-review .review-table th:first-child { width: 4.8rem; }
-  .editorial-review .review-table th, .editorial-review .review-table td { padding: .65rem .35rem; }
 }

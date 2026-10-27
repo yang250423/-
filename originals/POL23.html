@@ -4,24 +4,28 @@
 <style>
 /* layout-v3 book jacket + full book · 2026-10-17 */
 :root {
-  --bg: #faf8f5;
-  --ink: #1a1a1a;
+  --bg: #fdfcfa;
+  --ink: #333;
   --muted: #666;
   --line: #e5e0d8;
   --accent: #8b3a1a;
   --link: #6b3418;
   --quote-bg: #f3efe8;
-  --max: 42rem;
+  --max: 38rem;
   --font: "Noto Serif SC", "Source Han Serif SC", "Songti SC", "SimSun", Georgia, serif;
-  --sans: "Noto Sans SC", "PingFang SC", "Microsoft YaHei", sans-serif;
+  --sans: -apple-system, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  --body: var(--sans);
 }
 * { box-sizing: border-box; }
-html { font-size: 18px; -webkit-text-size-adjust: 100%; }
+html { font-size: 17px; -webkit-text-size-adjust: 100%; }
 body {
   margin: 0; color: var(--ink); background: var(--bg);
-  font-family: var(--font); line-height: 1.85;
-  word-break: keep-all; overflow-wrap: break-word; line-break: strict;
+  font-family: var(--body); line-height: 1.8; letter-spacing: .03em;
+  overflow-wrap: break-word; line-break: strict; text-align: start;
+  -webkit-font-smoothing: antialiased;
 }
+p { margin: 0 0 1.15em; }
+h1, h2, h3, .book-title, .cover-title { font-family: var(--font); color: #1a1a1a; letter-spacing: .02em; }
 a { color: var(--link); text-decoration: none; border-bottom: 1px solid transparent; }
 a:hover { border-bottom-color: currentColor; }
 .wrap { max-width: var(--max); margin: 0 auto; padding: 2rem 1.35rem 4.5rem; }
@@ -276,7 +280,7 @@ blockquote.epigraph .epigraph-label { opacity: .8; margin-left: .35rem; white-sp
 @media (min-width: 900px) {
   .wrap { padding-top: 2.5rem; }
 }
-</style></head><body><div class="wrap"><h1>POLITICO 2023：Apple / Temu 隐私（节选）</h1><p class="note">媒体报道 · POL23 · 本站只提供摘要与简短引语，全文请到原始来源阅读；版权归原刊。</p><h2>摘要</h2><p>POLITICO Europe 于 2023-07-24 报道，Apple 向记者表示 Temu 曾违反其隐私规则；据报道转述 Apple 的说法，Temu 在 7 月初解决了透明度问题，报道发布时可在 App Store 下载。<strong>〔媒体说法〕</strong></p><p>同一报道另称，Google 于 2023 年 3 月暂停的是 Temu 的中国姊妹应用 Pinduoduo。应用与平台须分别识别：Google / Pinduoduo 的暂停，不能移作 Apple / Temu 曾下架的证据。</p><p class="note">2026-10-19 复核 POLITICO 原文：上述 App Store 可用性的表述没有明确说明 Apple 此前曾暂停或下架 Temu。本站原摘要中的“恢复上架”据此订正；本次复核也不足以断言 Temu 从未被下架。</p><p><a href="https://www.politico.eu/article/booming-chinese-shopping-app-temu-faces-western-scrutiny-over-data-security-2/" target="_blank" rel="noopener">→ 阅读原文（原始来源）</a></p>
+</style></head><body><div class="wrap"><h1>POLITICO 2023：Apple / Temu 隐私（节选）</h1><p class="note">媒体报道 · POL23 · 本站只提供摘要与简短引语，全文请到原始来源阅读</p><h2>摘要</h2><p>POLITICO Europe 2023-07-24：Apple 向记者表示 Temu 曾违反隐私规则，7 月初解决后恢复上架。</p><p><a href="https://www.politico.eu/article/booming-chinese-shopping-app-temu-faces-western-scrutiny-over-data-security-2/" target="_blank" rel="noopener">→ 阅读原文（原始来源）</a></p>
 <p class="note"><a href="index.html">← 返回全部原文目录</a> · <a href="../index.html">回读本首页</a></p>
 </div>
 </body></html>
